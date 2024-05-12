@@ -258,9 +258,8 @@ int search_table_nome(municipio *T[], char *nome){
   i = 0;
   n = 0;
   hash = hash_str(nome);
-  while (T[pos]!= NULL) {
+  while (T[pos] != NULL) {
     if (strcmp(T[pos]->nome, nome) == 0) {
-      //printf("Found match: %s [%d]\n", T[pos]->nome, T[pos]->cod_ibge);
       results[n] = T[pos];
       n++;
     }
@@ -311,6 +310,8 @@ municipio *search_array_cod(municipio *v, int codigo_ibge){
 double distance(municipio a, municipio b) {
   return sqrt(pow(a.x - b.x, 2) + pow(a.y - b.y, 2));
 }
+
+
 int cmp_x(const void *a, const void *b){
   const municipio *p1 = (municipio *) a;
   const municipio *p2 = (municipio *) b;
@@ -323,6 +324,7 @@ int cmp_x(const void *a, const void *b){
     return 1;
   }
 }
+
 
 int cmp_y(const void *a, const void *b){
   const municipio *p1 = (municipio *) a;
@@ -474,8 +476,7 @@ int main(){
     insert_node2(TABLE2, novo);
   }
 
-  
-  
+	
   T = build_kdtree(v, SIZE, 0);
 
     
